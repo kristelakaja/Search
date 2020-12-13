@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SearchApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h3>Search:</h3>
+    <div>
+      <%= form_tag(search_page_path, :method => "get") do %>  
+        <%= search_field_tag :search, params[:search], placeholder: "Enter username"%>  
+        <%= button_tag "Search", :name => nil%>  
+      <% end %>
+    </div>
+    <br><br>
+    <div>
+      <h3>Result:</h3>
+      <%= @results %><br>  
+    </div>
+    <%= yield %>
+  </body>
+</html>
